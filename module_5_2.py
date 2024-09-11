@@ -8,8 +8,8 @@ class House:
     # def __len__(self):
     #     return self.num_flor
     def __eq__(self, other): # =
-        isinstance ( other, int )
-        return self.num_flor == other.num_flor
+        if isinstance(other, (int, House)):
+            return self.num_flor == other.num_flor
     def __le__(self, other): # <=
         return self.num_flor <= other.num_flor
     def __ne__(self, other): # !=
@@ -20,7 +20,8 @@ class House:
     def __lt__(self, other): # <
         return self.num_flor < other.num_flor
     def __gt__(self, other): # >
-        return self.num_flor > other.num_flor
+        if isinstance(other, (int, House)):
+            return self.num_flor > other.num_flor
 
     def __add__(self, value): # +
         isinstance ( value, House )
